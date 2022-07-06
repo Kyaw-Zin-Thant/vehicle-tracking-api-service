@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const glob = require("glob");
 // const { checkToken } = require("./controllers/middleware.controller");
 const { config } = require("./config/config");
-// const { errorHandler } = require("./services/error.handler.service");
+const { errorHandler } = require("./services/error.handler.service");
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
@@ -37,7 +37,7 @@ const routes = glob.sync("./routes/*.js");
 routes.forEach((route) => {
   require(route).default(app);
 });
-// app.use(errorHandler);
+app.use(errorHandler);
 app.set("trust proxy", true);
 app.listen(config.port, () => {
   console.log(`A NOde js API is listening in port:${config.port}`);

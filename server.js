@@ -6,6 +6,7 @@ const glob = require("glob");
 // const { checkToken } = require("./controllers/middleware.controller");
 const { config } = require("./config/config");
 const { errorHandler } = require("./services/error.handler.service");
+const db = require("./helpers/db");
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
@@ -39,6 +40,13 @@ routes.forEach((route) => {
 });
 app.use(errorHandler);
 app.set("trust proxy", true);
-app.listen(config.port, () => {
-  console.log(`A NOde js API is listening in port:${config.port}`);
-});
+db.sequelize
+  .sync({ alter: true })
+  .then(() => {
+    app.listen(config.port, () => {
+      console.log(`A NOde js API is listening in port:${config.port}`);
+    });
+  })
+  .catch((err) => {
+    console.log("Failed to connect db: " + err.message);
+  });

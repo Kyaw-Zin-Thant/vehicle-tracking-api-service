@@ -5,7 +5,7 @@ const envConfig = {
     port: 8080,
     db: {
       username: "root",
-      password: null,
+      password: "root1996@",
       database: "vehicle_tracking",
       host: "127.0.0.1",
       dialect: "mysql",
@@ -16,7 +16,7 @@ const envConfig = {
     port: 7001,
     db: {
       username: "root",
-      password: null,
+      password: "root1996@",
       database: "vehicle_tracking",
       host: "127.0.0.1",
       dialect: "mysql",
@@ -27,7 +27,7 @@ const envConfig = {
     port: 7001,
     db: {
       username: "root",
-      password: null,
+      password: "root1996@",
       database: "vehicle_tracking",
       host: "127.0.0.1",
       dialect: "mysql",

@@ -13,10 +13,5 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
     },
   });
-  Location.associate = (models) => {
-    Location.belongsTo(models.Vehicle, {
-      foreignKey: "vehicleId",
-    });
-  };
   return Location;
 };

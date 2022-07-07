@@ -15,14 +15,11 @@ module.exports = (sequelize) => {
     longitude: {
       type: DataTypes.STRING,
     },
-    token: {
+    imei: {
       type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
   });
-  Vehicle.associate = (models) => {
-    Vehicle.hasMany(models.Location, {
-      foreignKey: "vehicleId",
-    });
-  };
   return Vehicle;
 };

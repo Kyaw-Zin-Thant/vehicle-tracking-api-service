@@ -42,7 +42,10 @@ exports.createVehicleService = async ({ vehiclename, imei }) => {
   try {
     //check duplicate and return error message
     if (await db.Vehicle.findOne({ where: { imei } })) {
-      throw 'IMEI  "' + imei + '" is already registered';
+      const err = new Error();
+      err.message = 'IMEI  "' + imei + '" is already registered';
+      err.status = 400;
+      throw err;
     }
     //save data
     const vehicle = new db.Vehicle({ vehiclename, imei });

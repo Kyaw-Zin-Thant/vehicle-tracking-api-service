@@ -3,7 +3,6 @@ const app = express();
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const glob = require("glob");
-// const { checkToken } = require("./controllers/middleware.controller");
 const { config } = require("./config/config");
 const { errorHandler } = require("./services/error.handler.service");
 const db = require("./helpers/db");
@@ -50,3 +49,5 @@ db.sequelize
   .catch((err) => {
     console.log("Failed to connect db: " + err.message);
   });
+
+module.exports = app;

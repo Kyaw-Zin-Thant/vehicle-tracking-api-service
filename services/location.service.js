@@ -75,7 +75,7 @@ exports.getVehicleLocationService = async ({
       };
     }
     vehicleLocations = await db.Location.findAll(queryData);
-    return vehicleLocations;
+    return { locations: vehicleLocations };
   } catch (error) {
     throw error;
   }

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "sequelize": "sequelize init",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./tests/* --timeout 10000"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,11 @@
   "homepage": "https://github.com/Kyaw-Zin-Thant/vehicle-tracking-api-service#readme",
   "dependencies": {
     "body-parser": "^1.20.0",
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
     "express": "^4.18.1",
     "glob": "^8.0.3",
+    "mocha": "^10.0.0",
     "moment": "^2.29.4",
     "morgan": "^1.10.0",
     "mysql2": "^2.3.3",

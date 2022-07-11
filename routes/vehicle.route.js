@@ -6,6 +6,7 @@ const {
   updateVehicleController,
   deleteVehicleController,
 } = require("../controllers/vehicle.controller");
+const { checkApiKey } = require("../middlewares/middleware.controller");
 
 const router = express.Router();
 const baseURL = "/api/v1";
@@ -15,16 +16,16 @@ const baseURL = "/api/v1";
  */
 router
   .route(`${baseURL}/vehicle`)
-  .get(getVehicleController)
-  .post(createVehicleController);
+  .get(checkApiKey, getVehicleController)
+  .post(checkApiKey, createVehicleController);
 /**
  * vehicle detail,update,delete
  */
 router
   .route(`${baseURL}/vehicle/:vehicleId`)
-  .get(detailVehicleController)
-  .put(updateVehicleController)
-  .delete(deleteVehicleController);
+  .get(checkApiKey, detailVehicleController)
+  .put(checkApiKey, updateVehicleController)
+  .delete(checkApiKey, deleteVehicleController);
 exports.default = (app) => {
   app.use("/", router);
 };

@@ -5,6 +5,8 @@ To track the current position of vehicles in a fleet
 # Installation
 
 ```sh
+Nodejs
+MySQL
 Create My SqlDatabase vehicle_tracking and vehicle_tracking_test(For test case)
 ```
 
